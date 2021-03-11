@@ -29,13 +29,8 @@ namespace MinBy
             // TKey min = source.Min(keySelector);
             // return source.First(x => keySelector(x).Equals(min)); // bad, iterates twice, calls keySelector twice, doesn't use comparer
 
-            if(source.First() == null)
-            {
-                return default(TSource);
-            }
-
+            
             return Helper(source.Skip(1), keySelector, source.First(), keySelector(source.First()), comparer);
-
             
         }
 
